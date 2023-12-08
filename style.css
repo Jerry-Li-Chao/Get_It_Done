@@ -39,7 +39,7 @@ body {
   width: 90%;
   /* This will make the list take up the full width of its parent div */
   border: 1px solid #ddd;
-  padding: 10px;
+  padding: 0px;
   margin: 10px 0;
   background-color: #f5f5f5;
   overflow-y: scroll;
@@ -47,22 +47,72 @@ body {
 }
   
 .chronological-list {
+  position: relative;
   background-color: #f0f8ff; /* pale blue */
 }
 
 .sporadic-list {
-  background-color: #f5f0f0; /* pale pink */
+  position: relative;
+  background-color: #f5f0f0;
+  /* pale pink */
+}
+
+.time-container {
+  display: flex;
+  align-items: flex-start;
+  /* Align to the top */
+  width: 100%;
+}
+
+.time-label {
+  font-size: 11px;
+  width: 50px;
+  /* or whatever width you want for the labels */
+  text-align: left;
+  /* Add some space between the label and the block */
+  box-sizing: border-box;
+  height: 60px;
+  /* Set the height to match the time block */
+  display: flex;
+  align-items: flex-start;
+  /* Aligns text to the top */
+  justify-content: flex-start;
+  /* Aligns text to the left */
+}
+
+.time-block {
+  position: relative;
+  flex-grow: 1;
+  height: 60px;
+  border: 1px solid #ccc;
+  /* Light border for each time block */
+  padding: 10px;
+  margin-bottom: 0px;
+  /* Space between time blocks */
+  background-color: #e6e6e6;
+  /* Light background color for time blocks */
+}
+
+.task-block-container {
+  position: absolute;
+  width: 80%;
+  /* Adjust as needed */
+  left: 10%;
+  /* Center the container within the time block */
+  /* No need to set the height here; it will be set dynamically by JavaScript */
 }
 
 .task-block {
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
+  width: 97%;
+  height: 100%;
   background-color: lightgray;
   border-radius: 5px;
   padding: 5px;
-  margin: 0px 5px 10px 5px;
+  margin: 0px 5px 10px 0px;
   cursor: pointer;
 }
 
@@ -85,4 +135,27 @@ body {
 .task-block button {
   margin-left: 5px;
   /* Ensure buttons are always aligned to the right */
+}
+
+.grip {
+  width: 100%;
+  position: absolute;
+  bottom: -5px;
+  /* Position the grip outside the bottom of the container */
+  left: 0;
+  right: 0;
+  height: 10px;
+  /* Height of the grip area */
+  background: rgba(0, 0, 0, 0.15);
+  cursor: ns-resize;
+}
+
+.top-grip {
+  top: 0px;
+  /* Position the grip outside the top of the container */
+}
+
+.bottom-grip {
+  bottom: -10px;
+  /* Position the grip outside the bottom of the container */
 }
